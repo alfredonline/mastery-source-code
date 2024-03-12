@@ -52,7 +52,7 @@ const Navbar = async () => {
                         <Link
                           href={item.href}
                           key={index}
-                          className="text-gray-900 hover:text-gray-900"
+                          className="text-gray-900 hover:text-gray-900 flex items-center"
                         >
                           <item.Icon className="w-6 h-6" />
                           <span className="ml-2">{item.name}</span>
@@ -61,24 +61,26 @@ const Navbar = async () => {
                     })}
                 </div>
               </div>
-              <div className="hidden lg:flex lg:items-center lg:justify-end lg:space-x-2">
-                <LoginLink
-                  className={buttonVariants({
-                    variant: "default",
-                    size: "sm",
-                  })}
-                >
-                  Log in
-                </LoginLink>
-                <RegisterLink 
-                  className={buttonVariants({
-                    variant: "outline",
-                    size: "sm",
-                  })}
-                >
-                  Sign up
-                </RegisterLink>
-              </div>
+              {!user && (
+                <div className="hidden lg:flex lg:items-center lg:justify-end lg:space-x-2">
+                  <LoginLink
+                    className={buttonVariants({
+                      variant: "default",
+                      size: "sm",
+                    })}
+                  >
+                    Log in
+                  </LoginLink>
+                  <RegisterLink
+                    className={buttonVariants({
+                      variant: "outline",
+                      size: "sm",
+                    })}
+                  >
+                    Sign up
+                  </RegisterLink>
+                </div>
+              )}
             </div>
           </div>
         </MaxWidthWrapper>
